@@ -38,6 +38,9 @@ def part_2(value_list):
 
 
 def main():
+    start_time = time.time()
+    print("--- day1 ---")
+
     dir_path = os.path.dirname(os.path.realpath(__file__))
 
     file_reader = FileReader(dir_path + "/input.txt")
@@ -48,6 +51,9 @@ def main():
     for i in range(len(input_read)):
         parser = Parser(input_read[i].split("\n"))
         value_list.append(parser.convert_to_int())
+
+    print("--- parsing time: ---")
+    print("--- %s seconds ---" % (time.time() - start_time), "\n")
 
     start_time = time.time()
     print("part 1: ", part_1(value_list))
